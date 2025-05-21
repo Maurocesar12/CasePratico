@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificador de E-mails</title>
+</head>
+<body>
+    <h2>Classificador de E-mails (AutoU)</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <textarea name="email_text" rows="10" cols="60" placeholder="Cole aqui o conteúdo do e-mail..."></textarea><br><br>
+        <label>Ou envie um arquivo (.txt ou .pdf):</label><br>
+        <input type="file" name="email_file"><br><br>
+        <button type="submit">Classificar</button>
+    </form>
+
+    {% if categoria %}
+        <h3>Categoria: {{ categoria }}</h3>
+        <h4>Resposta sugerida:</h4>
+        <p>{{ resposta }}</p>
+    {% endif %}
+</body>
+</html>
