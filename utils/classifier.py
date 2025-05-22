@@ -1,18 +1,20 @@
 from transformers import pipeline
 
-# Tenta carregar o modelo leve
-try:
-    classifier = pipeline(
-        "text-classification",
-        model="sshleifer/tiny-distilroberta-base"
-    )
-except Exception as e:
-    print("Erro ao carregar o modelo:", str(e))
-    classifier = None
+_model = None  # cache para o modelo carregado
 
 def classify_email(text):
-    if not classifier:
+    global _model
+    try:
+        if _model is None:
+            _model = pipeline(
+                "text-classification",
+                model="sshleifer/tiny-distilroberta-base"
+            )
+
+        result = _model(text)[0]
+        label = result['label']
+        return "Produtivo" if label == "LABEL_1" else "Improdutivo"
+
+    except Exception as e:
+        print("Erro ao classificar:", str(e))
         return "Improdutivo"
-    result = classifier(text)[0]
-    label = result['label']
-    return "Produtivo" if label == "LABEL_1" else "Improdutivo"
