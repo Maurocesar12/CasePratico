@@ -1,22 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Classificador de E-mails</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classificador de E-mails (AutoU)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(145deg, #e3f2fd, #ffffff);
+      min-height: 100vh;
+      font-family: "Segoe UI", sans-serif;
+    }
+    .container {
+      max-width: 750px;
+      margin-top: 60px;
+    }
+    .card {
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #0d6efd, #0a58ca);
+      color: white;
+      border: none;
+    }
+    .btn-gradient:hover {
+      background: linear-gradient(135deg, #0a58ca, #084298);
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .brand-icon {
+      font-size: 2.5rem;
+      color: #0d6efd;
+    }
+  </style>
 </head>
 <body>
-    <h2>Classificador de E-mails (AutoU)</h2>
-    <form method="POST" enctype="multipart/form-data">
-        <textarea name="email_text" rows="10" cols="60" placeholder="Cole aqui o conteúdo do e-mail..."></textarea><br><br>
-        <label>Ou envie um arquivo (.txt ou .pdf):</label><br>
-        <input type="file" name="email_file"><br><br>
-        <button type="submit">Classificar</button>
-    </form>
+  <div class="container fade-in">
+    <div class="text-center mb-4">
+      <i class="bi bi-envelope-paper-fill brand-icon"></i>
+      <h1 class="fw-bold text-primary mt-2">Classificador de E-mails</h1>
+      <p class="text-muted">Automatize a triagem de mensagens e economize tempo com inteligência artificial.</p>
+    </div>
+
+    <div class="card bg-white">
+      <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="email_text" class="form-label fw-semibold">📋 Cole o conteúdo do e-mail:</label>
+          <textarea name="email_text" id="email_text" class="form-control" rows="5" placeholder="Digite ou cole aqui o conteúdo do e-mail...">{{ conteudo or '' }}</textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="email_file" class="form-label fw-semibold">📎 Ou envie um arquivo (.txt ou .pdf):</label>
+          <input type="file" name="email_file" class="form-control">
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-gradient px-4 py-2"><i class="bi bi-check-circle"></i> Classificar</button>
+        </div>
+      </form>
+    </div>
 
     {% if categoria %}
-        <h3>Categoria: {{ categoria }}</h3>
-        <h4>Resposta sugerida:</h4>
-        <p>{{ resposta }}</p>
+      <div class="alert mt-4 {% if categoria == 'Produtivo' %}alert-success{% else %}alert-warning{% endif %}">
+        <h5><i class="bi bi-lightbulb-fill me-2"></i><strong>Categoria:</strong> {{ categoria }}</h5>
+        <hr>
+        <p><i class="bi bi-chat-left-text me-2"></i><strong>Resposta sugerida:</strong><br>{{ resposta }}</p>
+      </div>
     {% endif %}
+  </div>
 </body>
 </html>
