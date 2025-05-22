@@ -1,5 +1,8 @@
 from transformers import pipeline
-classifier = pipeline("text-classification", model="distilbert-base-uncased")
+classifier = pipeline(
+    "text-classification",
+    model="sshleifer/tiny-distilroberta-base"
+)
 
 def classify_email(text):
     result = classifier(text)[0]['label']
