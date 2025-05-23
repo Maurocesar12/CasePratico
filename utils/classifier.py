@@ -1,8 +1,16 @@
 from transformers import pipeline
 
-# Novo modelo mais preciso
-classifier = pipeline("text-classification", model="papluca/xlm-roberta-base-language-detection")
+try:
+    classifier = pipeline("text-classification", model="sshleifer/tiny-distilroberta-base")
+except Exception as e:
+    classifier = None
+    print("Erro ao carregar modelo IA:", e)
 
 def classify_email(text):
-    result = classifier(text)[0]['label']
-    return "Produtivo" if result == "POSITIVE" else "Improdutivo"
+    if classifier:
+        try:
+            result = classifier(text)[0]['label']
+            return "Produtivo" if result == "LABEL_1" else "Improdutivo"
+        except:
+            pass
+    return "Improdutivo"
