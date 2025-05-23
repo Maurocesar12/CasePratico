@@ -1,7 +1,7 @@
 from transformers import pipeline
 
 # Novo modelo mais preciso
-classifier = pipeline("text-classification", model="distilbert-base-uncased-finetuned-sst-2-english")
+classifier = pipeline("text-classification", model="papluca/xlm-roberta-base-language-detection")
 
 def classify_email(text):
     result = classifier(text)[0]['label']
