@@ -1,26 +1,29 @@
-from transformers import pipeline
-import logging
+import google.generativeai as genai
+import os
+from dotenv import load_dotenv
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+load_dotenv()  # Carrega variáveis do .env
 
-try:
-    classifier = pipeline(
-    "text-classification",
-    model="philschmid/tiny-distilbert-classification",  # Modelo leve
-    device=-1  # Força CPU
-)
-    logger.info("Modelo carregado com sucesso!")
-except Exception as e:
-    logger.error(f"Falha crítica: {e}")
-    classifier = None
+# Configuração do Gemini
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel('gemini-2.0-flash')
 
 def classify_email(text: str) -> str:
-    if not classifier:
-        return "Improdutivo (erro)"
     try:
-        result = classifier(text[:512])[0]  # Limita o texto para evitar overload
-        return "Produtivo" if result["label"] == "LABEL_1" else "Improdutivo"
+        prompt = f"""
+        Classifique este e-mail como "Produtivo" ou "Improdutivo":
+        
+        Regras:
+        - Assuntos de trabalho, prazos, tarefas = Produtivo
+        - Comunicações informais, spam, pessoal = Improdutivo
+        
+        E-mail: {text[:2000]}  # Limita o tamanho
+        
+        Responda APENAS com "Produtivo" ou "Improdutivo".
+        """
+        
+        response = model.generate_content(prompt)
+        return response.text.strip()
     except Exception as e:
-        logger.error(f"Erro na classificação: {e}")
+        print(f"Erro no Gemini: {e}")
         return "Improdutivo (erro)"
