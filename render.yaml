@@ -1,10 +1,9 @@
 services:
   - type: web
-    name: classificacao-emails-autou
-    env: python
-    buildCommand: ""
-    startCommand: "python app.py"
+    name: case-pratico
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app  # Usa gunicorn para produção
     envVars:
-      - key: PORT
-        value: 10000 
-  
+      - key: PYTHON_VERSION
+        value: 3.9.16  # Versão compatível com torch
