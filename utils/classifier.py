@@ -6,10 +6,10 @@ logger = logging.getLogger(__name__)
 
 try:
     classifier = pipeline(
-        "text-classification",
-        model="philschmid/tiny-distilbert-classification",
-        device=-1
-    )
+    "text-classification",
+    model="philschmid/tiny-distilbert-classification",  # Modelo leve
+    device=-1  # Força CPU
+)
     logger.info("Modelo carregado com sucesso!")
 except Exception as e:
     logger.error(f"Falha crítica: {e}")
