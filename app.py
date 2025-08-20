@@ -38,7 +38,7 @@ def index():
             # Processamento e classificação
             processed = clean_text(content)
             categoria = classify_email(processed)
-            resposta = generate_response(categoria)
+            resposta = generate_response(categoria, content)
             
             return render_template(
                 "index.html",
