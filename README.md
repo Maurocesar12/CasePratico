@@ -68,7 +68,27 @@ Acesse a aplicação rodando em produção:
 │   ├── email_classifier.pkl
 │   └── vectorizer.pkl
 ```
+---
 
+## ⚙️ Instalação na sua máquina
+
+Siga os passos abaixo para rodar o projeto no seu computador:
+
+### 1. Pré-requisitos
+- **Python 3.9+** instalado ([download aqui](https://www.python.org/downloads/))
+- Conta no [Google AI Studio](https://ai.google.dev/) para gerar sua **API Key do Gemini**
+
+### 2. Clonar o repositório
+```bash
+git clone https://github.com/usuario/CasePratico.git
+cd CasePratico/CasePratico-main
+```
+### 3. Instalar no PowerShell e iniciar o projeto
+```bash
+- pip install -r requirements.txt
+
+- python app. py
+```
 ---
 
 ## 📋 Observações Finais
