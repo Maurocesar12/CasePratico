@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from utils.preprocess import clean_text
 from utils.classifier import classify_email
 from utils.responder import generate_response
-import os, time
+import os
 from pdfminer.high_level import extract_text  # Adicionei para PDF
 from flask import Flask, render_template, request, url_for, send_from_directory
 
@@ -36,7 +36,7 @@ def index():
             # Processamento e classificação
             processed = clean_text(content)
             categoria = classify_email(processed)
-            resposta = generate_response(categoria, content)
+            resposta = generate_response(categoria, content)    
             
             return render_template(
                 "index.html",
