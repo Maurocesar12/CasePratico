@@ -9,6 +9,7 @@ from flask import Flask, render_template, request, url_for, send_from_directory
 # Configurações
 UPLOAD_FOLDER = "/tmp/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024  # Limite de 2MB para uploads
 
