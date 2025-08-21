@@ -6,16 +6,6 @@ import os, time
 from pdfminer.high_level import extract_text  # Adicionei para PDF
 from flask import Flask, render_template, request, url_for, send_from_directory
 
-# Configuração de ambiente
-os.environ["XFORMERS_IGNORE_MISSING"] = "1"
-app = Flask(__name__, static_folder="static", static_url_path="/static")
-def asset_url(name: str):
-    path = os.path.join(app.static_folder, name)
-    v = int(os.path.getmtime(path)) if os.path.exists(path) else int(time.time())
-    return url_for("static", filename=name, v=v)
-
-app.jinja_env.globals["asset_url"] = asset_url
-
 # Configurações
 UPLOAD_FOLDER = "/tmp/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
