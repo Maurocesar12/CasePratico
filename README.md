@@ -1,7 +1,7 @@
 
 # 📧 Classificador Inteligente de E-mails (AutoU)
 
-Projeto desenvolvido como parte do processo seletivo para a vaga de **Engenheiro de Software Júnior** na AutoU.
+Projeto desenvolvido como parte do processo seletivo para a vaga na AutoU.
 
 ---
 
