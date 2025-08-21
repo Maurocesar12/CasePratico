@@ -1,7 +1,6 @@
 # utils/classifier.py
 import google.generativeai as genai
 import os
-import re
 from dotenv import load_dotenv
 
 load_dotenv()

@@ -42,7 +42,7 @@ Formato final:
             txt = txt.rstrip() + SIGN_OFF
         return txt
     except Exception as e:
-        # Fallback seguro
+        # Fallback
         base = (
             "Obrigado pela sua mensagem. "
             "Recebemos seu contato e vamos analisar para retornar com orientações."

@@ -41,7 +41,7 @@ Após testes com modelos da Hugging Face (como `tiny-distilroberta-base` e `dist
 
 Acesse a aplicação rodando em produção:
 
-🔗 [https://casepratico.onrender.com](https://casepratico-main.onrender.com/)
+🔗 [https://case-pratico.vercel.app/](https://case-pratico.vercel.app/)
 
 ---
 
@@ -80,7 +80,7 @@ Siga os passos abaixo para rodar o projeto no seu computador:
 
 ### 2. Clonar o repositório
 ```bash
-git clone https://github.com/usuario/CasePratico.git
+git clone https://github.com/Maurocesar12/CasePratico.git
 cd CasePratico/CasePratico-main
 ```
 ### 3. Para iniciar o projeto
