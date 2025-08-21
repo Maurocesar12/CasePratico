@@ -8,19 +8,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(270deg, rgba(31,134,207,0.8), rgba(0,17,255,0.8), rgba(0,38,255,0.8));
+      background: linear-gradient(260deg, rgba(31,134,207,0.8), rgba(0,17,255,0.8), rgba(0,38,255,0.8));
       background-size: 300% 300%;
-      animation: gradientFlow 10s ease-in-out infinite;
+      animation: gradientFlow 15s ease-in-out infinite;
       min-height: 100vh;
       font-family: "Segoe UI", sans-serif;
     }
-
     @keyframes gradientFlow {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 60%;}
       100% {background-position: 0% 50%;}
     }
-
     .container {
       max-width: 750px;
       margin-top: 60px;
@@ -49,9 +47,6 @@
     .brand-icon {
       font-size: 2.5rem;
       color: #0d6efd;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
     }
   </style>
 </head>
