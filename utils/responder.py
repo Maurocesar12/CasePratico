@@ -12,13 +12,14 @@ def generate_response(categoria: str, email_texto: str) -> str:
     Gera uma resposta curta e objetiva em pt-BR, adequada à categoria.
     - categoria: 'Produtivo' ou 'Improdutivo'
     - email_texto: conteúdo bruto do e-mail
+    Faça um resposta boa para o e-mail que foi digitado.
     """
-    # Diretrizes de tom e formato
     policy = f"""
-    Você é um assistente da Segna. Escreva em português do Brasil, profissional e cordial.
+    Faça uma resposta perfeita para oque foi digitado no E-mail.
+    Escreva em português do Brasil, profissional e cordial.
     Limite-se a 3–6 frases. Seja direto, sem jargões. Evite prometer prazos específicos.
     Inclua sempre um rodapé de encerramento já fornecido (não reescreva o rodapé).
-    Responda no contexto da categoria: "{categoria}".
+    "{categoria}".
 
     Regras por categoria:
     - Produtivo: reconheça a solicitação, confirme entendimento, peça dado pendente (se fizer sentido),
