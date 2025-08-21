@@ -83,7 +83,7 @@ Siga os passos abaixo para rodar o projeto no seu computador:
 git clone https://github.com/usuario/CasePratico.git
 cd CasePratico/CasePratico-main
 ```
-### 3. Instalar no PowerShell e iniciar o projeto
+### 3. Para iniciar o projeto
 ```bash
 - pip install -r requirements.txt
 
