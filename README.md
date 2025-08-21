@@ -41,7 +41,7 @@ Após testes com modelos da Hugging Face (como `tiny-distilroberta-base` e `dist
 
 Acesse a aplicação rodando em produção:
 
-🔗 [https://casepratico.onrender.com](https://casepratico.onrender.com)
+🔗 [https://casepratico.onrender.com](https://casepratico-main.onrender.com/)
 
 ---
 
