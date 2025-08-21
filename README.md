@@ -102,8 +102,7 @@ cd CasePratico/CasePratico-main
 
 ## 🤝 Contato
 
-**Mauro César**  
-Candidato à vaga de Engenheiro de Software Júnior  
+**Mauro César Guimarães**  
 📧 mauro.guimaraes@segna.com.br 
 🔗 [LinkedIn](https://www.linkedin.com/in/mauro-c%C3%A9sar-guimaraes-santos-junior-b9638b203/)
 
